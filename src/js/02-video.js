@@ -7,8 +7,7 @@ player.on('timeupdate', throttle(function (event) {
   localStorage.setItem('videoplayer-current-time', event.seconds);
 }, 1000));
 
-try {
+
+if (localStorage.getItem('videoplayer-current-time')) {
   player.setCurrentTime(localStorage.getItem('videoplayer-current-time'));
-} catch (error) {
-  console.log("no");
 }
