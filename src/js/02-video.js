@@ -7,7 +7,10 @@ player.on('timeupdate', throttle(function (event) {
   localStorage.setItem('videoplayer-current-time', event.seconds);
 }, 1000));
 
+const videoCurrentTime = localStorage.getItem('videoplayer-current-time', JSON.stringify);
 
-if (localStorage.getItem('videoplayer-current-time')) {
-  player.setCurrentTime(localStorage.getItem('videoplayer-current-time'));
-}
+const promise = new Promise((resolve) => {
+  resolve(player.setCurrentTime(videoCurrentTime))
+});
+
+promise.catch(error => {});
