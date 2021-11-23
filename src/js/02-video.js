@@ -9,8 +9,6 @@ player.on('timeupdate', throttle(function (event) {
 
 const videoCurrentTime = localStorage.getItem('videoplayer-current-time', JSON.stringify);
 
-const promise = new Promise((resolve) => {
-  resolve(player.setCurrentTime(videoCurrentTime))
-});
-
-promise.catch(error => {});
+player.setCurrentTime(videoCurrentTime)
+  .then(videoCurrentTime => console.log("Ustawiłem początkowy czas filmu z localStorage"))
+  .catch(error => console.log("Ten film nie był jeszcze odtwarzany"));
