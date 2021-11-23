@@ -11,7 +11,7 @@ const videoCurrentTime = localStorage.getItem('videoplayer-current-time', JSON.s
 
 const timeInSeconds = Math.floor(videoCurrentTime);
 const minutes = Math.floor(timeInSeconds / 60);
-const seconds = timeInSeconds - minutes * 60;
+const seconds = timeInSeconds - (minutes * 60);
 
 player.setCurrentTime(videoCurrentTime)
   .then(videoCurrentTime => console.log(`Ustawiłem początkowy czas filmu z localStorage, czyli ${minutes} min ${seconds} sec`))
