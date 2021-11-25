@@ -6,15 +6,15 @@ const submitButton = document.querySelector('button[type="submit"]');
 
 emailField.addEventListener(
   'input',
-  throttle(event => {
-    event.value = localStorage.setItem('email', emailField.value);
+  throttle(() => {
+    localStorage.setItem('email', emailField.value);
   }, 500),
 );
 
 messageField.addEventListener(
   'input',
-  throttle(event => {
-    event.value = localStorage.setItem('message', messageField.value);
+  throttle(() => {
+    localStorage.setItem('message', messageField.value);
   }, 500),
 );
 
